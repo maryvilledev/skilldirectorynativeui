@@ -1,19 +1,18 @@
 import React from 'react'
 import { Navigator, Text } from 'react-native'
 
-//import Home from './Home';
 import Skills from './Skills';
-import Header from './Header';
+import Home from './Home';
 //import Team from './Team';
 
 import Navbar from './Navbar'
 
 export const routes = [
-  {title:'Welcome', index: 0},
+  {title:'Home', index: 0},
   {title:'Skills', index: 1}
 ];
 const scenes = [
-  <Header />,
+  <Home />,
   <Skills />
 ];
 

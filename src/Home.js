@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { centerLayout } from './Styles'
 
-export default class Header extends Component {
+export default class Home extends Component {
   render() {
     return (
       <View style={centerLayout}>
