@@ -10,3 +10,15 @@ export const centerLayout = {
   justifyContent: 'center',
   alignItems: 'center'
 }
+
+export const reviewLayout = {
+  width: 300,
+  height: 60,
+  alignItems: 'center',
+  borderColor: 'black',
+  borderWidth: 1,
+  margin: 1,
+}
+
+export const positiveReview = Object.assign({backgroundColor: 'green'}, reviewLayout)
+export const negativeReview = Object.assign({backgroundColor: 'red'}, reviewLayout)

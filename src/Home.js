@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { centerLayout } from './Styles'
+import { View, Text, ListView } from 'react-native'
+import { centerLayout, positiveReview, negativeReview } from './Styles'
 import axios from 'axios'
 
 import { API_URL } from './Env'
@@ -13,7 +13,7 @@ export default class Home extends Component {
     this.state = {
       totalTeamMembers: null,
       totalSkills: null,
-      recentSkillReviews: null,
+      recentSkillReviews: [],
      };
   }
 
@@ -35,9 +35,20 @@ export default class Home extends Component {
         <Text>Skill Directory Home</Text>
         <Text>Team Members: {this.state.totalTeamMembers}</Text>
         <Text>Unique Skills: {this.state.totalSkills}</Text>
+        {this.state.recentSkillReviews.map(review => <Review review={review} key={review.timestamp}/>)}
       </View>
     )
   }
+}
+
+const Review = (props) => {
+  const style = (props.review.positive) ? positiveReview : negativeReview;
+  return (
+    <View style={style}>
+      <Text>{`${props.review.team_member_name} reviewed the ${props.review.skill_name} Skill`}</Text>
+      <Text>{props.review.body}</Text>
+    </View>
+  )
 }
 
 // Invokes callback with total Team Member records in the api backend as param.
