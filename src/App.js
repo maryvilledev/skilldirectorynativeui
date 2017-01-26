@@ -3,17 +3,19 @@ import { Navigator, Text } from 'react-native'
 
 import Skills from './Skills';
 import Home from './Home';
-//import Team from './Team';
+import Team from './Team';
 
 import Navbar from './Navbar'
 
 export const routes = [
   {title:'Home', index: 0},
-  {title:'Skills', index: 1}
+  {title:'Skills', index: 1},
+  {title:'Team', index: 2},
 ];
 const scenes = [
   <Home />,
-  <Skills />
+  <Skills />,
+  <Team />,
 ];
 
 function App(props) {
