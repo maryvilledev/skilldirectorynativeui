@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, ListView } from 'react-native'
-import { centerLayout, positiveReview, negativeReview } from './Styles'
+import { centerLayout, positiveReview, negativeReview, textStyles } from './Styles'
 import axios from 'axios'
 
 import { API_URL } from './Env'
@@ -32,7 +32,7 @@ export default class Home extends Component {
   render() {
     return (
       <View style={centerLayout}>
-        <Text>Skill Directory Home</Text>
+        <Text style={textStyles.large}>Skill Directory Home</Text>
         <Text>Team Members: {this.state.totalTeamMembers}</Text>
         <Text>Unique Skills: {this.state.totalSkills}</Text>
         {this.state.recentSkillReviews.map(review => <Review review={review} key={review.timestamp}/>)}
@@ -46,7 +46,7 @@ const Review = (props) => {
   return (
     <View style={style}>
       <Text>{`${props.review.team_member_name} reviewed the ${props.review.skill_name} Skill`}</Text>
-      <Text>{props.review.body}</Text>
+      <Text style={textStyles.small}>{props.review.body}</Text>
     </View>
   )
 }
@@ -97,9 +97,9 @@ function getRecentSkillReviews(api, callback, numReviews) {
 function sortByTimestamp(a, b) {
   const aTime = new Date(a.timestamp).getTime();
   const bTime = new Date(b.timestamp).getTime();
-  if(aTime < bTime)
+  if(aTime > bTime)
     return 1;
-  else if(aTime > bTime)
+  else if(aTime < bTime)
     return -1;
   return 0;
 }

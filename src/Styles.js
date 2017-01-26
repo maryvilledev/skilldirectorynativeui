@@ -22,3 +22,12 @@ export const reviewLayout = {
 
 export const positiveReview = Object.assign({backgroundColor: 'green'}, reviewLayout)
 export const negativeReview = Object.assign({backgroundColor: 'red'}, reviewLayout)
+
+export const textStyles = {
+  small: {
+    fontSize: 10,
+  },
+  large: {
+    fontSize: 30,
+  }
+}
