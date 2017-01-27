@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, ListView } from 'react-native'
-import { centerLayout, positiveReview, negativeReview, textStyles } from './Styles'
+import { View, Text, ScrollView, RefreshControl } from 'react-native'
+import { scrollLayout, centerLayout, positiveReview, negativeReview, textStyles } from './Styles'
 import axios from 'axios'
 
 import { API_URL } from './Env'
@@ -14,29 +14,47 @@ export default class Home extends Component {
       totalTeamMembers: null,
       totalSkills: null,
       recentSkillReviews: [],
+      unloadedComponents: 3,
+      refreshing: true,
      };
+
+     this.doRefresh = this.doRefresh.bind(this);
   }
 
   componentDidMount() {
+    this.doRefresh();
+  }
+
+  doRefresh() {
+    this.setState({refreshing: true, unloadedComponents: 3})
     getTotalTeamMembers(api, total => {
-      this.setState({ totalTeamMembers: total })
+      this.setState({ totalTeamMembers: total, unloadedComponents: this.state.unloadedComponents - 1, refreshing: (this.state.unloadedComponents - 1 > 1)})
     });
     getTotalSkills(api, total => {
-      this.setState({ totalSkills: total })
+      this.setState({ totalSkills: total, unloadedComponents: this.state.unloadedComponents - 1, refreshing: (this.state.unloadedComponents - 1 > 1) })
     });
     getRecentSkillReviews(api, reviews => {
-      this.setState({ recentSkillReviews: reviews });
-    }, 5);
+      this.setState({ recentSkillReviews: reviews, unloadedComponents: this.state.unloadedComponents - 1, refreshing: (this.state.unloadedComponents - 1 > 1) });
+    }, 20);
   }
 
   render() {
     return (
-      <View style={centerLayout}>
-        <Text style={textStyles.large}>Skill Directory Home</Text>
-        <Text>Team Members: {this.state.totalTeamMembers}</Text>
-        <Text>Unique Skills: {this.state.totalSkills}</Text>
+      <ScrollView style={scrollLayout}
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this.doRefresh}
+          />
+        }
+        >
+        <View style={centerLayout}>
+          <Text style={textStyles.large}>Skill Directory Home</Text>
+          <Text>Team Members: {this.state.totalTeamMembers}</Text>
+          <Text>Unique Skills: {this.state.totalSkills}</Text>
+        </View>
         {this.state.recentSkillReviews.map(review => <Review review={review} key={review.timestamp}/>)}
-      </View>
+      </ScrollView>
     )
   }
 }

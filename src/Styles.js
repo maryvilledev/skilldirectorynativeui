@@ -11,6 +11,10 @@ export const centerLayout = {
   alignItems: 'center'
 }
 
+export const scrollLayout = {
+  alignSelf: 'center',
+}
+
 export const reviewLayout = {
   width: 300,
   height: 60,
