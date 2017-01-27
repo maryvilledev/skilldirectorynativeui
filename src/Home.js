@@ -52,6 +52,7 @@ export default class Home extends Component {
           <Text style={textStyles.large}>Skill Directory Home</Text>
           <Text>Team Members: {this.state.totalTeamMembers}</Text>
           <Text>Unique Skills: {this.state.totalSkills}</Text>
+          <Text>Recent Skill Reviews</Text>
         </View>
         {this.state.recentSkillReviews.map(review => <Review review={review} key={review.timestamp}/>)}
       </ScrollView>
