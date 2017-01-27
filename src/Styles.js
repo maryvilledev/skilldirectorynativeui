@@ -17,6 +17,11 @@ export const scrollLayout = {
   alignSelf: 'stretch',
 }
 
+export const skillSelector = Object.assign({
+  borderColor: 'black',
+  borderWidth: 3,
+}, centerLayout)
+
 export const reviewLayout = {
   width: 300,
   height: 60,
