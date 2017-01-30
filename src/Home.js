@@ -65,7 +65,7 @@ export default class Home extends Component {
   }
 }
 
-const Review = (props) => {
+export const Review = (props) => {
   const style = (props.review.positive) ? positiveReview : negativeReview;
   return (
     <View style={style}>
