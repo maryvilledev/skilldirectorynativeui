@@ -45,22 +45,26 @@ export default class Home extends Component {
 
   render() {
     return (
-      <ScrollView style={scrollLayout}
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this.doRefresh}
-          />
-        }
-        >
-        <View style={centerLayout}>
-          <Text style={textStyles.large}>Skill Directory Home</Text>
-          <Text>Team Members: {this.state.totalTeamMembers}</Text>
-          <Text>Unique Skills: {this.state.totalSkills}</Text>
-          <Text>Recent Skill Reviews</Text>
-        </View>
-        {this.state.recentSkillReviews.map(review => <Review review={review} key={review.timestamp}/>)}
-      </ScrollView>
+      <View>
+        {/* Strut to keep the header in line */}
+        <View style={{height: 20}}/>
+        <ScrollView style={scrollLayout}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.doRefresh}
+            />
+          }
+          >
+          <View style={centerLayout}>
+            <Text style={textStyles.large}>Skill Directory Home</Text>
+            <Text>Team Members: {this.state.totalTeamMembers}</Text>
+            <Text>Unique Skills: {this.state.totalSkills}</Text>
+            <Text>Recent Skill Reviews</Text>
+          </View>
+          {this.state.recentSkillReviews.map(review => <Review review={review} key={review.timestamp}/>)}
+        </ScrollView>
+      </View>
     )
   }
 }
