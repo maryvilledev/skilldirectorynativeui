@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, Button, Navigator } from 'react-native'
+import { View, ScrollView, Text, Button } from 'react-native'
 import axios from 'axios'
 import { API_URL } from './Env'
 
