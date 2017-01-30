@@ -8,6 +8,11 @@ import { API_URL } from './Env'
 const api = API_URL;
 
 export default class Home extends Component {
+  static navigationOptions = {
+    tabBar: {
+      label: "Home"
+    }
+  }
   constructor(props) {
     super(props);
     this.state = {
