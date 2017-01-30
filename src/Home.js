@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, ScrollView, RefreshControl } from 'react-native'
-import { scrollLayout, centerLayout, positiveReview, negativeReview, textStyles } from './Styles'
+import { scrollLayout, centerLayout, textStyles } from './Styles'
 import axios from 'axios'
 
 import { API_URL } from './Env'
+import { Review } from './Skills'
 
 const api = API_URL;
 
@@ -67,16 +68,6 @@ export default class Home extends Component {
       </View>
     )
   }
-}
-
-export const Review = (props) => {
-  const style = (props.review.positive) ? positiveReview : negativeReview;
-  return (
-    <View style={style}>
-      <Text>{`${props.review.team_member_name} reviewed the ${props.review.skill_name} Skill`}</Text>
-      <Text style={textStyles.small}>{props.review.body}</Text>
-    </View>
-  )
 }
 
 // Invokes callback with total Team Member records in the api backend as param.

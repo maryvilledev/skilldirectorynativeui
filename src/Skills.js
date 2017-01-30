@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { View, ScrollView, Text, Button } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import { Review } from './Home'
 import axios from 'axios'
 import { API_URL } from './Env'
 
-import { textStyles, scrollLayout, centerLayout, skillSelector } from './Styles'
+import { textStyles, scrollLayout, centerLayout, skillSelector, positiveReview, negativeReview } from './Styles'
 
 const api = API_URL;
 
@@ -97,3 +96,13 @@ const SkillsNavigator = StackNavigator({
 })
 
 export default SkillsNavigator
+
+export const Review = (props) => {
+  const style = (props.review.positive) ? positiveReview : negativeReview;
+  return (
+    <View style={style}>
+      <Text>{`${props.review.team_member_name} reviewed the ${props.review.skill_name} Skill`}</Text>
+      <Text style={textStyles.small}>{props.review.body}</Text>
+    </View>
+  )
+}
