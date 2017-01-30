@@ -4,12 +4,12 @@ import { TabNavigator } from 'react-navigation'
 
 import SkillsNavigator from './Skills';
 import Home from './Home';
-import Team from './Team';
+import TeamNavigator from './Team';
 
 const App = TabNavigator({
   Home: {screen: Home},
   Skills: {screen: SkillsNavigator},
-  Team: {screen: Team}
+  Team: {screen: TeamNavigator}
 })
 
 export default App
