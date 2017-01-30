@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, Button } from 'react-native'
+import { View, ScrollView, Text, Button, RefreshControl } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 import axios from 'axios'
 import { API_URL } from './Env'
+import AddForm, { FORM_TYPE } from './AddForm'
 
 import { textStyles, scrollLayout, centerLayout, skillSelector, positiveReview, negativeReview } from './Styles'
 
 const api = API_URL;
+
+const types = ['compiled', 'scripted', 'database', 'orchestration'];
 
 class Skills extends Component {
   static navigationOptions = {
@@ -19,16 +22,34 @@ class Skills extends Component {
     super();
     this.state = {
       skills: [],
-    }
+      modalVisible: false,
+      refreshing: true,
+    };
+    this.addSkill = this.addSkill.bind(this);
+    this.doRefresh = this.doRefresh.bind(this);
   }
-  componentDidMount() {
+  doRefresh() {
+    this.setState({refreshing: true})
     axios.get(`${API_URL}/skills/`)
       .then(res => {
         this.setState({
-          skills: res.data.slice()
+          skills: res.data.slice(),
+          refreshing: false,
         });
       })
       .catch(err => console.error(err));
+  }
+  componentDidMount() {
+    this.doRefresh()
+  }
+  addSkill(name, type) {
+    axios.post(`${api}/skills`, {name: name, skill_type: type})
+      .then(() => {
+        this.doRefresh()
+      })
+      .catch(err => {
+        console.err(err)
+      });
   }
   render() {
     const { navigate } = this.props.navigation;
@@ -41,10 +62,34 @@ class Skills extends Component {
         />
       )
     });
+    const forms = [
+      {type: FORM_TYPE.TEXT, label: 'Name', placeholder: 'name'},
+      {type: FORM_TYPE.PICKER, label: 'Type', items: types}
+    ]
     return (
-      <ScrollView style={scrollLayout}>
-          {skills}
-      </ScrollView>
+      <View>
+        <AddForm
+          visible={this.state.modalVisible}
+          forms={forms}
+          onSubmit={vals => this.addSkill(...vals)}
+          onClose={() => this.setState({modalVisible: false})}
+        />
+        <ScrollView
+          style={scrollLayout}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.doRefresh}
+            />
+          }
+        >
+            {skills}
+        </ScrollView>
+        <Button
+          onPress={() => this.setState({modalVisible: true})}
+          title="Add"
+        />
+      </View>
     )
   }
 }
