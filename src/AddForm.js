@@ -1,11 +1,12 @@
 import React, {Component} from "react"
-import { ScrollView, Modal, Picker, Text, View, TextInput, Button } from 'react-native'
+import { ScrollView, Modal, Picker, Text, View, TextInput, Button, Switch } from 'react-native'
 import { scrollLayout, centerLayout, textStyles, horizontalLayout} from './Styles'
 const Item = Picker.Item
 
 const FORM_TYPE = {
   TEXT: 1,
   PICKER: 2,
+  SWITCH: 3,
 }
 
 export {FORM_TYPE};
@@ -107,6 +108,16 @@ const Form = (props) => {
           </Picker>
         </View>
       )
+    case FORM_TYPE.SWITCH:
+      return (
+        <View>
+          <Text style={textStyles.large}>{`${form.label}: `}</Text>
+          <Switch
+            onValueChange={update}
+            value={value}
+          />
+        </View>
+      )
   }
 }
 
@@ -119,6 +130,9 @@ function getDefaultValues(forms) {
         break;
       case FORM_TYPE.PICKER:
         values.push(form.items[0])
+        break;
+      case FORM_TYPE.SWITCH:
+        values.push(false)
         break;
       default:
         values.push(null)
