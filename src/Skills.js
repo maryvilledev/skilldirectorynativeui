@@ -106,10 +106,20 @@ class Detail extends Component {
     this.state = {
       skill: props.navigation.state.params.skill,
       // Holy nested key-value pairs, Batman!
-      reviews: []
+      reviews: [],
+      teamMembers: [],
+      modalVisible: false,
     }
+
+    this.getReviews = this.getReviews.bind(this);
+    this.getTeamMembers = this.getTeamMembers.bind(this);
+    this.addReview = this.addReview.bind(this);
   }
   componentDidMount() {
+    this.getReviews();
+    this.getTeamMembers();
+  }
+  getReviews() {
     axios.get(`${api}/skillreviews?skill_id=${this.state.skill.id}`)
       .then(res => {
         const reviews = res.data.slice();
@@ -121,16 +131,61 @@ class Detail extends Component {
         console.err(err);
       });
   }
+  getTeamMembers() {
+    axios.get(`${api}/teammembers/`)
+      .then(res => {
+        const teamMembers = res.data.slice()
+        this.setState({
+          teamMembers: teamMembers
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      });
+  }
+  addReview(teamMemberName, positive, body) {
+    const postBody = {
+      skill_id: this.state.skill.id,
+      team_member_id: this.state.teamMembers.find(mem => mem.name === teamMemberName).id,
+      body: body,
+      positive: positive,
+    }
+    axios.post(`${api}/skillreviews/`, postBody)
+      .then(() => {
+        this.getReviews()
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
   render() {
     const skill = this.state.skill;
     const reviews = this.state.reviews.map(review => <Review review={review} key={review.id}/>)
+    const memberNames = this.state.teamMembers.map(mem => mem.name)
+    const forms = [
+      {type: FORM_TYPE.PICKER, label: 'Team Member', items: memberNames},
+      {type: FORM_TYPE.SWITCH, label: 'Positive'},
+      {type: FORM_TYPE.TEXT, label: 'Body', multiline: true},
+    ]
     return (
-      <ScrollView style={scrollLayout}>
-        <View style={centerLayout}>
-          <Text style={textStyles.large}>{skill.skill_type}</Text>
-        </View>
-        {reviews}
-      </ScrollView>
+      <View>
+        <ScrollView style={scrollLayout}>
+          <View style={centerLayout}>
+            <Text style={textStyles.large}>{skill.skill_type}</Text>
+          </View>
+          {reviews}
+        </ScrollView>
+        <AddForm
+          forms={forms}
+          visible={this.state.modalVisible}
+          onClose={() => this.setState({modalVisible: false})}
+          onSubmit={vals => this.addReview(...vals)}
+        />
+        <Button
+          onPress={() => this.setState({modalVisible: true})}
+          title="Add Review"
+        />
+      </View>
     );
   }
 }
