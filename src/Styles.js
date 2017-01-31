@@ -29,6 +29,7 @@ export const reviewLayout = {
   alignItems: 'center',
   alignSelf: 'center',
   borderColor: 'black',
+  borderRadius: 3,
   borderWidth: 1,
   margin: 1,
 }
@@ -41,8 +42,8 @@ export const formElement = {
   overflow: 'hidden',
 }
 
-export const positiveReview = Object.assign({backgroundColor: 'green'}, reviewLayout)
-export const negativeReview = Object.assign({backgroundColor: 'red'}, reviewLayout)
+export const positiveReview = Object.assign({backgroundColor: '#00e600'}, reviewLayout)
+export const negativeReview = Object.assign({backgroundColor: '#ff6666'}, reviewLayout)
 
 export const textStyles = {
   small: {
