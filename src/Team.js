@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, Button, RefreshControl } from 'react-native'
+import { Text, View, ScrollView, Button, RefreshControl, Alert } from 'react-native'
 import axios from 'axios'
 import { API_URL } from './Env'
 import { StackNavigator } from 'react-navigation'
@@ -25,6 +25,7 @@ class Team extends Component {
     };
 
     this.addTeamMember = this.addTeamMember.bind(this)
+    this.deleteTeamMember = this.deleteTeamMember.bind(this)
     this.doRefresh = this.doRefresh.bind(this)
   }
   componentDidMount() {
@@ -54,6 +55,15 @@ class Team extends Component {
         console.error(err)
       })
   }
+  deleteTeamMember(id){
+    axios.delete(`${api}/teammembers/${id}`)
+      .then(() => {
+        this.doRefresh()
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
   render() {
     const { navigate } = this.props.navigation;
     const forms = [
@@ -64,7 +74,9 @@ class Team extends Component {
       <Button
         title={member.name}
         key={index}
-        onPress={() => navigate('Detail', {member: member})}
+        onPress={() => navigate('Detail', {member: member, deleteCallback: () => {
+          this.deleteTeamMember(member.id);
+        }})}
       />
     )});
     return (
@@ -103,10 +115,23 @@ class Detail extends Component {
     }
   }
   render() {
+    const { goBack } = this.props.navigation;
     const member = this.props.navigation.state.params.member;
+    const deleteCallback = this.props.navigation.state.params.deleteCallback;
     return (
       <View style={centerLayout}>
         <Text style={textStyles.large}>{member.title}</Text>
+        <Button
+          onPress={() => {Alert.alert('DeleteSkill', 'Are you sure?', [
+            {text: 'Yes', onPress: () => {
+              deleteCallback();
+              goBack();
+            }, style: 'destructive'},
+            {text: 'No', style: 'cancel'},
+          ])}}
+          title="Delete"
+          color="red"
+        />
       </View>
     )
   }
