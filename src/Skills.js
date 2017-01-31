@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, Button, RefreshControl } from 'react-native'
+import { View, ScrollView, Text, Button, RefreshControl, TouchableOpacity, WebView } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 import axios from 'axios'
 import { API_URL } from './Env'
 import AddForm, { FORM_TYPE } from './AddForm'
 
-import { textStyles, scrollLayout, centerLayout, skillSelector, positiveReview, negativeReview } from './Styles'
+import { textStyles, scrollLayout, centerLayout, skillSelector, linkLayout, positiveReview, negativeReview } from './Styles'
 
 const api = API_URL;
 
@@ -107,16 +107,19 @@ class Detail extends Component {
       skill: props.navigation.state.params.skill,
       // Holy nested key-value pairs, Batman!
       reviews: [],
+      links: [],
       teamMembers: [],
       modalVisible: false,
     }
 
     this.getReviews = this.getReviews.bind(this);
     this.getTeamMembers = this.getTeamMembers.bind(this);
+    this.getLinks = this.getLinks.bind(this);
     this.addReview = this.addReview.bind(this);
   }
   componentDidMount() {
     this.getReviews();
+    this.getLinks()
     this.getTeamMembers();
   }
   getReviews() {
@@ -129,6 +132,16 @@ class Detail extends Component {
       })
       .catch(err => {
         console.err(err);
+      });
+  }
+  getLinks() {
+    axios.get(`${api}/skills/${this.state.skill.id}`)
+      .then(res => {
+        const links = res.data.links.slice();
+        this.setState({links: links});
+      })
+      .catch(err => {
+        console.error(err)
       });
   }
   getTeamMembers() {
@@ -159,7 +172,13 @@ class Detail extends Component {
       })
   }
   render() {
+    const {navigate} = this.props.navigation;
     const skill = this.state.skill;
+    const links = this.state.links.map(link => <Link
+      onPress={() => navigate('Web', {url: link.url})}
+      link={link}
+      key={link.id}
+    />)
     const reviews = this.state.reviews.map(review => <Review review={review} key={review.id}/>)
     const memberNames = this.state.teamMembers.map(mem => mem.name)
     const forms = [
@@ -173,6 +192,9 @@ class Detail extends Component {
           <View style={centerLayout}>
             <Text style={textStyles.large}>{skill.skill_type}</Text>
           </View>
+          <Text style={centerLayout}>Links</Text>
+          {links}
+          <Text style={centerLayout}>Reviews</Text>
           {reviews}
         </ScrollView>
         <AddForm
@@ -190,9 +212,28 @@ class Detail extends Component {
   }
 }
 
+class WebViewer extends Component {
+  static navigationOptions = {
+    title: ({state}) => state.params.url,
+    tabBar: {
+      label: "Skills"
+    }
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: props.navigation.state.params.url,
+    }
+  }
+  render() {
+    return <WebView source={{uri:this.state.url}}/>
+  }
+}
+
 const SkillsNavigator = StackNavigator({
   All: { screen: Skills },
-  Detail: { screen: Detail }
+  Detail: { screen: Detail },
+  Web: { screen: WebViewer}
 })
 
 export default SkillsNavigator
@@ -204,5 +245,17 @@ export const Review = (props) => {
       <Text>{`${props.review.team_member_name} reviewed the ${props.review.skill_name} Skill`}</Text>
       <Text style={textStyles.small}>{props.review.body}</Text>
     </View>
+  )
+}
+
+export const Link = (props) => {
+  const link = props.link
+  return (
+    <TouchableOpacity onPress={props.onPress}>
+      <View style={linkLayout}>
+        <Text>{link.name}</Text>
+        <Text style={textStyles.small}>{link.link_type}</Text>
+      </View>
+    </TouchableOpacity>
   )
 }

@@ -44,6 +44,7 @@ export const formElement = {
 
 export const positiveReview = Object.assign({backgroundColor: '#00e600'}, reviewLayout)
 export const negativeReview = Object.assign({backgroundColor: '#ff6666'}, reviewLayout)
+export const linkLayout = Object.assign({backgroundColor: '#f2f2f2'}, reviewLayout)
 
 export const textStyles = {
   small: {
