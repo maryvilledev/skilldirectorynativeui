@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, Button, RefreshControl, TouchableOpacity, WebView } from 'react-native'
+import { View, ScrollView, Text, Button, RefreshControl, TouchableOpacity, WebView, Alert } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 import axios from 'axios'
 import { API_URL } from './Env'
@@ -21,13 +21,16 @@ class Skills extends Component {
   }
   constructor() {
     super();
+
     this.state = {
       skills: [],
       modalVisible: false,
       refreshing: true,
     };
+
     this.addSkill = this.addSkill.bind(this);
     this.doRefresh = this.doRefresh.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
   }
   doRefresh() {
     this.setState({refreshing: true})
@@ -52,6 +55,15 @@ class Skills extends Component {
         console.error(err)
       });
   }
+  deleteSkill(skill_id){
+    axios.delete(`${api}/skills/${skill_id}`)
+      .then(() => {
+        this.doRefresh()
+      })
+      .catch(err => {
+        console.error(err);
+      })
+  }
   render() {
     const { navigate } = this.props.navigation;
     const skills = this.state.skills.map((skill, index) => {return (
@@ -59,7 +71,9 @@ class Skills extends Component {
           style={skillSelector}
           title={skill.name}
           key={skill.id}
-          onPress={() => navigate('Detail', { skill: skill })}
+          onPress={() => navigate('Detail', { skill: skill, deleteCallback: () =>{
+            this.deleteSkill(skill.id);
+          } })}
         />
       )
     });
@@ -106,6 +120,7 @@ class Detail extends Component {
     super(props);
     this.state = {
       skill: props.navigation.state.params.skill,
+      deleteCallback: props.navigation.state.params.deleteCallback,
       // Holy nested key-value pairs, Batman!
       reviews: [],
       links: [],
@@ -190,7 +205,7 @@ class Detail extends Component {
       })
   }
   render() {
-    const {navigate} = this.props.navigation;
+    const {navigate, goBack} = this.props.navigation;
     const skill = this.state.skill;
     const links = this.state.links.map(link => <Link
       onPress={() => navigate('Web', {url: link.url})}
@@ -241,6 +256,17 @@ class Detail extends Component {
             onPress={() => this.setState({reviewModalVisible: true})}
             title="Add Review"
           />
+          <Button
+            onPress={() => {Alert.alert('DeleteSkill', 'Are you sure?', [
+              {text: 'Yes', onPress: () => {
+                this.state.deleteCallback();
+                goBack();
+              }, style: 'destructive'},
+              {text: 'No', style: 'cancel'},
+            ])}}
+            title="Delete"
+            color="red"
+          />
         </View>
       </View>
     );
@@ -268,7 +294,7 @@ class WebViewer extends Component {
 const SkillsNavigator = StackNavigator({
   All: { screen: Skills },
   Detail: { screen: Detail },
-  Web: { screen: WebViewer}
+  Web: { screen: WebViewer }
 })
 
 export default SkillsNavigator
