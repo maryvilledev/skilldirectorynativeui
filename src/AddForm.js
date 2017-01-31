@@ -72,6 +72,8 @@ export default class AddForm extends Component {
           visible={this.props.visible}
           onRequestClose={this.onCancel}
         >
+          <View style={{height: 20}} />
+          {/* Strut to keep off top of screen */}
           <ScrollView style={scrollLayout}>
             {forms}
           </ScrollView>
