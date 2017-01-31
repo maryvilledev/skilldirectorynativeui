@@ -25,6 +25,12 @@ export default class AddForm extends Component {
     this.onClose = props.onClose.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.state = {
+      values: getDefaultValues(props.forms)
+    }
+  }
+
   update(index, value) {
     const values = this.state.values.slice()
     values[index] = value
