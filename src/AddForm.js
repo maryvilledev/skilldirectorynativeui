@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import { ScrollView, Modal, Picker, Text, View, TextInput, Button, Switch } from 'react-native'
-import { scrollLayout, centerLayout, textStyles, horizontalLayout} from './Styles'
+import { scrollLayout, centerLayout, textStyles, horizontalLayout, formElement} from './Styles'
 const Item = Picker.Item
 
 const FORM_TYPE = {
@@ -86,23 +86,23 @@ const Form = (props) => {
   switch (form.type) {
     case FORM_TYPE.TEXT:
       return (
-      <View>
+      <View style={formElement}>
         <Text style={textStyles.large}>{`${form.label}: `}</Text>
         <TextInput
           style={{height: 40, borderColor: 'grey', borderWidth: 1}}
           onChangeText={update}
           value={value}
+          multiline={form.multiline || false}
         />
       </View>
     );
     case FORM_TYPE.PICKER:
       return (
-        <View>
+        <View style={formElement}>
           <Text style={textStyles.large}>{`${form.label}: `}</Text>
           <Picker
             onValueChange={update}
             selectedValue={value || form.items[0]}
-            style={{height: 40}}
           >
             {form.items.map((item, index) => <Item label={item} value={item} key={index}/>)}
           </Picker>
@@ -110,7 +110,7 @@ const Form = (props) => {
       )
     case FORM_TYPE.SWITCH:
       return (
-        <View>
+        <View style={formElement}>
           <Text style={textStyles.large}>{`${form.label}: `}</Text>
           <Switch
             onValueChange={update}

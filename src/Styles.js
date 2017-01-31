@@ -33,6 +33,14 @@ export const reviewLayout = {
   margin: 1,
 }
 
+export const formElement = {
+  borderRadius: 3,
+  borderWidth: 0.5,
+  margin: 10,
+  marginVertical: 5,
+  overflow: 'hidden',
+}
+
 export const positiveReview = Object.assign({backgroundColor: 'green'}, reviewLayout)
 export const negativeReview = Object.assign({backgroundColor: 'red'}, reviewLayout)
 
