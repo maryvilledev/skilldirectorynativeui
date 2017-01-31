@@ -5,11 +5,12 @@ import axios from 'axios'
 import { API_URL } from './Env'
 import AddForm, { FORM_TYPE } from './AddForm'
 
-import { textStyles, scrollLayout, centerLayout, skillSelector, linkLayout, positiveReview, negativeReview } from './Styles'
+import { textStyles, scrollLayout, centerLayout, skillSelector, linkLayout, positiveReview, negativeReview, horizontalLayout } from './Styles'
 
 const api = API_URL;
 
-const types = ['compiled', 'scripted', 'database', 'orchestration'];
+const skillTypes = ['compiled', 'scripted', 'database', 'orchestration'];
+const linkTypes = ['blog', 'tutorial', 'webpage']
 
 class Skills extends Component {
   static navigationOptions = {
@@ -64,7 +65,7 @@ class Skills extends Component {
     });
     const forms = [
       {type: FORM_TYPE.TEXT, label: 'Name', placeholder: 'name'},
-      {type: FORM_TYPE.PICKER, label: 'Type', items: types}
+      {type: FORM_TYPE.PICKER, label: 'Type', items: skillTypes}
     ]
     return (
       <View>
@@ -109,13 +110,15 @@ class Detail extends Component {
       reviews: [],
       links: [],
       teamMembers: [],
-      modalVisible: false,
+      reviewModalVisible: false,
+      linkModalVisible: false,
     }
 
     this.getReviews = this.getReviews.bind(this);
     this.getTeamMembers = this.getTeamMembers.bind(this);
     this.getLinks = this.getLinks.bind(this);
     this.addReview = this.addReview.bind(this);
+    this.addLink = this.addLink.bind(this);
   }
   componentDidMount() {
     this.getReviews();
@@ -171,6 +174,21 @@ class Detail extends Component {
         console.error(err)
       })
   }
+  addLink(name, url, type) {
+    const postBody = {
+      skill_id: this.state.skill.id,
+      url: url,
+      link_type: type,
+      name: name
+    }
+    axios.post(`${api}/links/`, postBody)
+      .then(() => {
+        this.getLinks()
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
   render() {
     const {navigate} = this.props.navigation;
     const skill = this.state.skill;
@@ -181,11 +199,16 @@ class Detail extends Component {
     />)
     const reviews = this.state.reviews.map(review => <Review review={review} key={review.id}/>)
     const memberNames = this.state.teamMembers.map(mem => mem.name)
-    const forms = [
+    const reviewForms = [
       {type: FORM_TYPE.PICKER, label: 'Team Member', items: memberNames},
       {type: FORM_TYPE.SWITCH, label: 'Positive'},
       {type: FORM_TYPE.TEXT, label: 'Body', multiline: true},
-    ]
+    ];
+    const linkForms = [
+      {type: FORM_TYPE.TEXT, label: 'Name'},
+      {type: FORM_TYPE.TEXT, label: 'URL'},
+      {type: FORM_TYPE.PICKER, label: 'Type', items: linkTypes}
+    ];
     return (
       <View>
         <ScrollView style={scrollLayout}>
@@ -198,15 +221,27 @@ class Detail extends Component {
           {reviews}
         </ScrollView>
         <AddForm
-          forms={forms}
-          visible={this.state.modalVisible}
-          onClose={() => this.setState({modalVisible: false})}
+          forms={reviewForms}
+          visible={this.state.reviewModalVisible}
+          onClose={() => this.setState({reviewModalVisible: false})}
           onSubmit={vals => this.addReview(...vals)}
         />
-        <Button
-          onPress={() => this.setState({modalVisible: true})}
-          title="Add Review"
+        <AddForm
+          forms={linkForms}
+          visible={this.state.linkModalVisible}
+          onClose={() => this.setState({linkModalVisible: false})}
+          onSubmit={vals => this.addLink(...vals)}
         />
+        <View style={horizontalLayout}>
+          <Button
+            onPress={() => this.setState({linkModalVisible: true})}
+            title="Add Link"
+          />
+          <Button
+            onPress={() => this.setState({reviewModalVisible: true})}
+            title="Add Review"
+          />
+        </View>
       </View>
     );
   }
