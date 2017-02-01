@@ -1,0 +1,1001 @@
+exports[`<Detail /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
+  <ScrollView
+    style={
+      Object {
+        "alignSelf": "stretch",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 30,
+          }
+        }>
+        mock
+      </Text>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }>
+      Links
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }>
+      Reviews
+    </Text>
+  </ScrollView>
+  <View>
+    <Modal
+      animationType="slide"
+      onRequestClose={[Function]}
+      transparent={false}
+      visible={false}>
+      <View
+        style={
+          Object {
+            "height": 20,
+          }
+        } />
+      <ScrollView
+        style={
+          Object {
+            "alignSelf": "stretch",
+          }
+        }>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Team Member: 
+          </Text>
+          <View
+            style={undefined}>
+            <RCTPicker
+              items={Array []}
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selectedIndex={0}
+              style={
+                Array [
+                  Object {
+                    "height": 216,
+                  },
+                  undefined,
+                ]
+              } />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Positive: 
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Body: 
+          </Text>
+          <TextInput
+            multiline={true}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            style={
+              Object {
+                "borderColor": "grey",
+                "borderWidth": 1,
+                "height": 40,
+              }
+            }
+            value="" />
+        </View>
+      </ScrollView>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }>
+        <View
+          accessibilityComponentType="button"
+          accessibilityLabel={undefined}
+          accessibilityTraits={
+            Array [
+              "button",
+            ]
+          }
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}>
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#0C42FD",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }>
+              Submit
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType="button"
+          accessibilityLabel={undefined}
+          accessibilityTraits={
+            Array [
+              "button",
+            ]
+          }
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}>
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#0C42FD",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }>
+              Cancel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </Modal>
+  </View>
+  <View>
+    <Modal
+      animationType="slide"
+      onRequestClose={[Function]}
+      transparent={false}
+      visible={false}>
+      <View
+        style={
+          Object {
+            "height": 20,
+          }
+        } />
+      <ScrollView
+        style={
+          Object {
+            "alignSelf": "stretch",
+          }
+        }>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Name: 
+          </Text>
+          <TextInput
+            multiline={false}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            style={
+              Object {
+                "borderColor": "grey",
+                "borderWidth": 1,
+                "height": 40,
+              }
+            }
+            value="" />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            URL: 
+          </Text>
+          <TextInput
+            multiline={false}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            style={
+              Object {
+                "borderColor": "grey",
+                "borderWidth": 1,
+                "height": 40,
+              }
+            }
+            value="" />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Type: 
+          </Text>
+          <View
+            style={undefined}>
+            <RCTPicker
+              items={
+                Array [
+                  Object {
+                    "label": "blog",
+                    "textColor": undefined,
+                    "value": "blog",
+                  },
+                  Object {
+                    "label": "tutorial",
+                    "textColor": undefined,
+                    "value": "tutorial",
+                  },
+                  Object {
+                    "label": "webpage",
+                    "textColor": undefined,
+                    "value": "webpage",
+                  },
+                ]
+              }
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selectedIndex={0}
+              style={
+                Array [
+                  Object {
+                    "height": 216,
+                  },
+                  undefined,
+                ]
+              } />
+          </View>
+        </View>
+      </ScrollView>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }>
+        <View
+          accessibilityComponentType="button"
+          accessibilityLabel={undefined}
+          accessibilityTraits={
+            Array [
+              "button",
+            ]
+          }
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}>
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#0C42FD",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }>
+              Submit
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType="button"
+          accessibilityLabel={undefined}
+          accessibilityTraits={
+            Array [
+              "button",
+            ]
+          }
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}>
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#0C42FD",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }>
+              Cancel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </Modal>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }>
+          Add Link
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }>
+          Add Review
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits={
+        Array [
+          "button",
+        ]
+      }
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#0C42FD",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "red",
+              },
+            ]
+          }>
+          Delete
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<Skills /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
+  <View>
+    <Modal
+      animationType="slide"
+      onRequestClose={[Function]}
+      transparent={false}
+      visible={false}>
+      <View
+        style={
+          Object {
+            "height": 20,
+          }
+        } />
+      <ScrollView
+        style={
+          Object {
+            "alignSelf": "stretch",
+          }
+        }>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Name: 
+          </Text>
+          <TextInput
+            multiline={false}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            style={
+              Object {
+                "borderColor": "grey",
+                "borderWidth": 1,
+                "height": 40,
+              }
+            }
+            value="" />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 3,
+              "borderWidth": 0.5,
+              "margin": 10,
+              "marginVertical": 5,
+              "overflow": "hidden",
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 30,
+              }
+            }>
+            Type: 
+          </Text>
+          <View
+            style={undefined}>
+            <RCTPicker
+              items={
+                Array [
+                  Object {
+                    "label": "compiled",
+                    "textColor": undefined,
+                    "value": "compiled",
+                  },
+                  Object {
+                    "label": "scripted",
+                    "textColor": undefined,
+                    "value": "scripted",
+                  },
+                  Object {
+                    "label": "database",
+                    "textColor": undefined,
+                    "value": "database",
+                  },
+                  Object {
+                    "label": "orchestration",
+                    "textColor": undefined,
+                    "value": "orchestration",
+                  },
+                ]
+              }
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selectedIndex={0}
+              style={
+                Array [
+                  Object {
+                    "height": 216,
+                  },
+                  undefined,
+                ]
+              } />
+          </View>
+        </View>
+      </ScrollView>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }>
+        <View
+          accessibilityComponentType="button"
+          accessibilityLabel={undefined}
+          accessibilityTraits={
+            Array [
+              "button",
+            ]
+          }
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}>
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#0C42FD",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }>
+              Submit
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType="button"
+          accessibilityLabel={undefined}
+          accessibilityTraits={
+            Array [
+              "button",
+            ]
+          }
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID={undefined}>
+          <View
+            style={
+              Array [
+                Object {},
+              ]
+            }>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#0C42FD",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
+                  },
+                ]
+              }>
+              Cancel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </Modal>
+  </View>
+  <ScrollView
+    refreshControl={
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={true} />
+    }
+    style={
+      Object {
+        "alignSelf": "stretch",
+      }
+    } />
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}>
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#0C42FD",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }>
+        Add
+      </Text>
+    </View>
+  </View>
+</View>
+`;

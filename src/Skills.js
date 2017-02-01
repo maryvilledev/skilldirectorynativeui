@@ -12,7 +12,7 @@ const api = API_URL;
 const skillTypes = ['compiled', 'scripted', 'database', 'orchestration'];
 const linkTypes = ['blog', 'tutorial', 'webpage']
 
-class Skills extends Component {
+export class Skills extends Component {
   static navigationOptions = {
     title: "Skills",
     tabBar: {
@@ -109,7 +109,7 @@ class Skills extends Component {
   }
 }
 
-class Detail extends Component {
+export class Detail extends Component {
   static navigationOptions = {
     title: ({state}) => state.params.skill.name,
     tabBar: {
