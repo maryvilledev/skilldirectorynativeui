@@ -122,7 +122,7 @@ class Detail extends Component {
       <View style={centerLayout}>
         <Text style={textStyles.large}>{member.title}</Text>
         <Button
-          onPress={() => {Alert.alert('DeleteSkill', 'Are you sure?', [
+          onPress={() => {Alert.alert('Delete Team Member', 'Are you sure?', [
             {text: 'Yes', onPress: () => {
               deleteCallback();
               goBack();

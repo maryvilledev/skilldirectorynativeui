@@ -257,7 +257,7 @@ class Detail extends Component {
             title="Add Review"
           />
           <Button
-            onPress={() => {Alert.alert('DeleteSkill', 'Are you sure?', [
+            onPress={() => {Alert.alert('Delete Skill', 'Are you sure?', [
               {text: 'Yes', onPress: () => {
                 this.state.deleteCallback();
                 goBack();
