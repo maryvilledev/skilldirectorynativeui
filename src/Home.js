@@ -46,7 +46,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         {/* Strut to keep the header in line */}
         <View style={{height: 20}}/>
         <ScrollView style={scrollLayout}

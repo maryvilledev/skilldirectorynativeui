@@ -80,7 +80,7 @@ class Team extends Component {
       />
     )});
     return (
-      <View>
+      <View style={{flex: 1}}>
         <ScrollView
           style={scrollLayout}
           refreshControl = {

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { API_URL } from './Env'
 import AddForm, { FORM_TYPE } from './AddForm'
 
-import { textStyles, scrollLayout, centerLayout, skillSelector, linkLayout, positiveReview, negativeReview, horizontalLayout } from './Styles'
+import { textStyles, scrollLayout, centerLayout, skillSelector, linkLayout, positiveReview, negativeReview, horizontalLayout, footer } from './Styles'
 
 const api = API_URL;
 
@@ -82,7 +82,7 @@ class Skills extends Component {
       {type: FORM_TYPE.PICKER, label: 'Type', items: skillTypes}
     ]
     return (
-      <View>
+      <View style={{flex: 1}}>
         <AddForm
           visible={this.state.modalVisible}
           forms={forms}
@@ -101,8 +101,8 @@ class Skills extends Component {
             {skills}
         </ScrollView>
         <Button
-          onPress={() => this.setState({modalVisible: true})}
-          title="Add"
+            onPress={() => this.setState({modalVisible: true})}
+            title="Add"
         />
       </View>
     )
@@ -225,7 +225,7 @@ class Detail extends Component {
       {type: FORM_TYPE.PICKER, label: 'Type', items: linkTypes}
     ];
     return (
-      <View>
+      <View style={{flex: 1}}>
         <ScrollView style={scrollLayout}>
           <View style={centerLayout}>
             <Text style={textStyles.large}>{skill.skill_type}</Text>

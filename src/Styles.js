@@ -15,7 +15,6 @@ export const centerLayout = {
 
 export const scrollLayout = {
   alignSelf: 'stretch',
-  height: 500,
 }
 
 export const skillSelector = Object.assign({
