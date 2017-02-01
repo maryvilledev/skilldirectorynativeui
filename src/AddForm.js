@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import { ScrollView, Modal, Picker, Text, View, TextInput, Button, Switch } from 'react-native'
+import { ScrollView, Modal, Picker, Text, View, TextInput, Button, Switch, NativeMethodsMixin } from 'react-native'
 import { scrollLayout, centerLayout, textStyles, horizontalLayout, formElement} from './Styles'
 const Item = Picker.Item
 
@@ -57,12 +57,17 @@ export default class AddForm extends Component {
   }
 
   render() {
+    let _scrollView: ScrollView;
+    const onFocus = (y) => {_scrollView.scrollTo({y: y})};
+    const onBlur = () => {_scrollView.scrollTo({y: 0})};
     const values = this.state.values.slice()
     const forms = this.props.forms.map((form, index) => <Form
       form={form}
       key={index}
       update={val => this.update(index, val)}
       value={values[index]}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />)
     return (
       <View>
@@ -74,7 +79,10 @@ export default class AddForm extends Component {
         >
           <View style={{height: 20}} />
           {/* Strut to keep off top of screen */}
-          <ScrollView style={scrollLayout}>
+          <ScrollView
+            ref={scrollView => {_scrollView = scrollView;}}
+            style={scrollLayout}
+          >
             {forms}
           </ScrollView>
           <View style={horizontalLayout}>
@@ -93,14 +101,19 @@ const Form = (props) => {
   const value = props.value
   switch (form.type) {
     case FORM_TYPE.TEXT:
+    const onFocus = props.onFocus;
+    const onBlur = props.onBlur;
+    let _y = 0;
       return (
-      <View style={formElement}>
+      <View style={formElement} onLayout={ev => {_y = ev.nativeEvent.layout.y}}>
         <Text style={textStyles.large}>{`${form.label}: `}</Text>
         <TextInput
           style={{height: 40, borderColor: 'grey', borderWidth: 1}}
           onChangeText={update}
           value={value}
           multiline={form.multiline || false}
+          onFocus={() => onFocus(_y)}
+          onBlur={onBlur}
         />
       </View>
     );
