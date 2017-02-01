@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import { ScrollView, Modal, Picker, Text, View, TextInput, Button, Switch, NativeMethodsMixin } from 'react-native'
+import { ScrollView, Modal, Picker, Text, View, TextInput, Button, Switch, Alert } from 'react-native'
 import { scrollLayout, centerLayout, textStyles, horizontalLayout, formElement} from './Styles'
 const Item = Picker.Item
 
@@ -46,7 +46,14 @@ export default class AddForm extends Component {
   }
 
   onSubmit() {
-    this.props.onSubmit(this.state.values.slice());
+    const vals = this.state.values.slice()
+    if(vals.filter(val => val === '').length > 0) {
+      //There is an empty string in the values list
+      Alert.alert('Please complete all forms.')
+      //TODO do something better here
+      return;
+    }
+    this.props.onSubmit(vals);
     this.clearForms();
     this.onClose();
   }
