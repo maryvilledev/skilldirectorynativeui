@@ -101,18 +101,18 @@ const Form = (props) => {
   const value = props.value
   switch (form.type) {
     case FORM_TYPE.TEXT:
-    const onFocus = props.onFocus;
-    const onBlur = props.onBlur;
-    let _y = 0;
+      const onFocus = props.onFocus;
+      const onBlur = props.onBlur;
+      let _view: View;
       return (
-      <View style={formElement} onLayout={ev => {_y = ev.nativeEvent.layout.y}}>
+      <View ref={view => {_view = view}} style={formElement}>
         <Text style={textStyles.large}>{`${form.label}: `}</Text>
         <TextInput
           style={{height: 40, borderColor: 'grey', borderWidth: 1}}
           onChangeText={update}
           value={value}
           multiline={form.multiline || false}
-          onFocus={() => onFocus(_y)}
+          onFocus={() => {_view.measure((x, y) => onFocus(y))}}
           onBlur={onBlur}
         />
       </View>
