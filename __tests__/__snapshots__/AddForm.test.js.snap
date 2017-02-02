@@ -1,0 +1,257 @@
+exports[`<AddForm /> renders correctly 1`] = `
+<View>
+  <Modal
+    animationType="slide"
+    onRequestClose={[Function]}
+    transparent={false}
+    visible={true}>
+    <View
+      style={
+        Object {
+          "height": 20,
+        }
+      } />
+    <ScrollView
+      style={
+        Object {
+          "alignSelf": "stretch",
+        }
+      }>
+      <View
+        style={
+          Object {
+            "borderRadius": 3,
+            "borderWidth": 0.5,
+            "margin": 10,
+            "marginVertical": 5,
+            "overflow": "hidden",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 30,
+            }
+          }>
+          Name: 
+        </Text>
+        <TextInput
+          multiline={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          style={
+            Object {
+              "borderColor": "grey",
+              "borderWidth": 1,
+              "height": 40,
+            }
+          }
+          value="" />
+      </View>
+      <View
+        style={
+          Object {
+            "borderRadius": 3,
+            "borderWidth": 0.5,
+            "margin": 10,
+            "marginVertical": 5,
+            "overflow": "hidden",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 30,
+            }
+          }>
+          Title: 
+        </Text>
+        <View
+          style={undefined}>
+          <RCTPicker
+            items={
+              Array [
+                Object {
+                  "label": "Destructor",
+                  "textColor": undefined,
+                  "value": "Destructor",
+                },
+                Object {
+                  "label": "Cheerleader",
+                  "textColor": undefined,
+                  "value": "Cheerleader",
+                },
+                Object {
+                  "label": "Rabbit",
+                  "textColor": undefined,
+                  "value": "Rabbit",
+                },
+              ]
+            }
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            selectedIndex={0}
+            style={
+              Array [
+                Object {
+                  "height": 216,
+                },
+                undefined,
+              ]
+            } />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "borderRadius": 3,
+            "borderWidth": 0.5,
+            "margin": 10,
+            "marginVertical": 5,
+            "overflow": "hidden",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 30,
+            }
+          }>
+          PK Sensitive: 
+        </Text>
+        <RCTSwitch
+          disabled={false}
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 31,
+                "width": 51,
+              },
+              undefined,
+            ]
+          }
+          value={false} />
+      </View>
+    </ScrollView>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }>
+      <View
+        accessibilityComponentType="button"
+        accessibilityLabel={undefined}
+        accessibilityTraits={
+          Array [
+            "button",
+          ]
+        }
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}>
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#0C42FD",
+                  "fontSize": 18,
+                  "padding": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }>
+            Submit
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityComponentType="button"
+        accessibilityLabel={undefined}
+        accessibilityTraits={
+          Array [
+            "button",
+          ]
+        }
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}>
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#0C42FD",
+                  "fontSize": 18,
+                  "padding": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }>
+            Cancel
+          </Text>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
