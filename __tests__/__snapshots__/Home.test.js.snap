@@ -1,0 +1,67 @@
+exports[`<Home /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "height": 20,
+      }
+    } />
+  <ScrollView
+    refreshControl={
+      <RefreshControl
+        onRefresh={[Function]}
+        refreshing={true} />
+    }
+    style={
+      Object {
+        "alignSelf": "stretch",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 30,
+          }
+        }>
+        Skill Directory Home
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        Team Members: 
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        Unique Skills: 
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        Recent Skill Reviews
+      </Text>
+    </View>
+  </ScrollView>
+</View>
+`;

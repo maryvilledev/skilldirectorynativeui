@@ -9,7 +9,7 @@ import { centerLayout, scrollLayout, textStyles } from './Styles'
 
 const api = API_URL;
 
-class Team extends Component {
+export class Team extends Component {
   static navigationOptions = {
     title: "Team Members",
     tabBar: {
@@ -107,7 +107,7 @@ class Team extends Component {
   }
 }
 
-class Detail extends Component {
+export class Detail extends Component {
   static navigationOptions = {
     title: ({state}) => state.params.member.name,
     tabBar: {

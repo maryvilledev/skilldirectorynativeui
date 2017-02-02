@@ -710,6 +710,96 @@ exports[`<Detail /> renders correctly 1`] = `
 </View>
 `;
 
+exports[`<Link /> renders correctly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#f2f2f2",
+        "borderColor": "black",
+        "borderRadius": 3,
+        "borderWidth": 1,
+        "height": 60,
+        "margin": 1,
+        "width": 300,
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      The googs
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 10,
+        }
+      }>
+      webpage
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`<Review /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "#ff6666",
+      "borderColor": "black",
+      "borderRadius": 3,
+      "borderWidth": 1,
+      "height": 60,
+      "margin": 1,
+      "width": 300,
+    }
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    Donnie Darko reviewed the Telekenisis Skill
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 10,
+      }
+    }>
+    Sucked airplane through black hole. 10/10.
+  </Text>
+</View>
+`;
+
 exports[`<Skills /> renders correctly 1`] = `
 <View
   style={
@@ -997,5 +1087,48 @@ exports[`<Skills /> renders correctly 1`] = `
       </Text>
     </View>
   </View>
+</View>
+`;
+
+exports[`<WebViewer /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
+  <RCTWebView
+    allowsInlineMediaPlayback={undefined}
+    automaticallyAdjustContentInsets={undefined}
+    bounces={undefined}
+    contentInset={undefined}
+    dataDetectorTypes={undefined}
+    decelerationRate={undefined}
+    injectedJavaScript={undefined}
+    mediaPlaybackRequiresUserAction={undefined}
+    messagingEnabled={false}
+    onLoadingError={[Function]}
+    onLoadingFinish={[Function]}
+    onLoadingStart={[Function]}
+    onMessage={[Function]}
+    onShouldStartLoadWithRequest={undefined}
+    scalesPageToFit={undefined}
+    scrollEnabled={undefined}
+    source={
+      Object {
+        "uri": "https://example.com",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        undefined,
+      ]
+    } />
 </View>
 `;

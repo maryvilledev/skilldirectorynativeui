@@ -273,7 +273,7 @@ export class Detail extends Component {
   }
 }
 
-class WebViewer extends Component {
+export class WebViewer extends Component {
   static navigationOptions = {
     title: ({state}) => state.params.url,
     tabBar: {
